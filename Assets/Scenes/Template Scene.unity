@@ -201,6 +201,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152435118}
   m_CullTransparentMesh: 1
+--- !u!1 &181720270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181720271}
+  - component: {fileID: 181720272}
+  m_Layer: 0
+  m_Name: DataConsumers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181720271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181720270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 419484215}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &181720272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181720270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655ffb292d57fd540b8ea4b5c0ab3e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionDataManager: {fileID: 1517537544}
+  potionDataID: 0
 --- !u!1 &196556270
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 419484215}
   - component: {fileID: 419484214}
+  - component: {fileID: 419484216}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -604,10 +651,24 @@ Transform:
   m_LocalPosition: {x: -3.318728, y: 3.002433, z: 20.641098}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1517537543}
+  - {fileID: 181720271}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &419484216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419484213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446cfbf6f79229046bd43aa1740be5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &423087666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,6 +1919,8 @@ MonoBehaviour:
   spriteArr:
   - {fileID: 21300000, guid: 679d4e42f6a849240b8abe145040b5aa, type: 3}
   - {fileID: 21300000, guid: 5f864801c2af59940af66f939fc3a2ad, type: 3}
+  potionDataManager: {fileID: 1517537544}
+  saleScript: {fileID: 419484216}
 --- !u!1 &1353641177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2118,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432752940}
   m_CullTransparentMesh: 1
+--- !u!1 &1517537542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517537543}
+  - component: {fileID: 1517537544}
+  m_Layer: 0
+  m_Name: DataManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517537543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517537542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 419484215}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1517537544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517537542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fbbe4b39127b94dbe50aaa420afb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataArray:
+  - {fileID: 11400000, guid: a18cddc443fde874d8385fffc3ad63ee, type: 2}
+  - {fileID: 11400000, guid: ebf2446dfa7eb4941850806f6c74a771, type: 2}
 --- !u!1 &1600105184
 GameObject:
   m_ObjectHideFlags: 0

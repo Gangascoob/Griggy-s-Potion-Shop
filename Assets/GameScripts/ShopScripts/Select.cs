@@ -15,6 +15,9 @@ public class Select : MonoBehaviour
 
     private GameObject selectedSlot;
 
+    private float newSaleRate;
+    private int newSalePrice;
+
     private Image slotImage;
     private Sprite slotSprite;
 
@@ -22,6 +25,10 @@ public class Select : MonoBehaviour
 
     private Color _potionColor;
     private Color _emptyColor;
+
+    public PotionDataManager potionDataManager;
+    public SaleScript saleScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,13 +63,33 @@ public class Select : MonoBehaviour
 
         if(slotSelected == true)
         {
+            GetValues(slotID);
             slotSprite = spriteArr[slotID];
             slotImage = selectedSlot.GetComponent<Image>();
             slotImage.sprite = slotSprite;
             slotSelected = false;
             slotImage.color = _potionColor;
+            saleScript.SetSale(newSaleRate, newSalePrice);
         }
         
         
     }
+
+    public void GetValues(int id)
+    {
+        bool success = potionDataManager.GetSaleData(id, out int salePrice, out float saleRate);
+
+        if (success)
+        {
+            Debug.Log($"Sale Price: {salePrice}, Sale Rate: {saleRate}");
+            newSaleRate = saleRate;
+            newSalePrice = salePrice;
+        }
+
+        else
+        {
+            Debug.LogError($"PotionData with ID {id} not found!");
+        }
+    }
+
 }
