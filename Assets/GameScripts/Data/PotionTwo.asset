@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PotionTwo
   m_EditorClassIdentifier: 
   itemName: PotionTwo
-  itemID: 1
+  id: 1
   saleRate: 2
   salePrice: 2

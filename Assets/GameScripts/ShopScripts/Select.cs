@@ -20,7 +20,7 @@ public class Select : MonoBehaviour
 
     private Image slotImage;
     private Sprite slotSprite;
-
+    [SerializeField] private Sprite originalSprite;
     [SerializeField] private Sprite[] spriteArr;
 
     private Color _potionColor;
@@ -29,15 +29,16 @@ public class Select : MonoBehaviour
     public PotionDataManager potionDataManager;
     public SaleScript saleScript;
 
-
-    // Start is called before the first frame update
+    private bool slotOneLock = false;
+    private bool slotTwoLock = false;
+   
     void Start()
     {
         _potionColor = new Color(209, 187, 125, 109);
         _emptyColor = new Color(209, 187, 125, 255);
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         
@@ -47,11 +48,11 @@ public class Select : MonoBehaviour
     {
         Slot = slot;
         slotSelected = true;
-        if(slot == 1)
+        if(slot == 1 && slotOneLock == false)
         {
             selectedSlot = slotOne;
         }
-        if(slot == 2)
+        if(slot == 2 && slotTwoLock == false)
         {
             selectedSlot = slotTwo;
         }
@@ -69,8 +70,9 @@ public class Select : MonoBehaviour
             slotImage.sprite = slotSprite;
             slotSelected = false;
             slotImage.color = _potionColor;
-            saleScript.SetSale(newSaleRate, newSalePrice);
+            saleScript.SetSale(newSaleRate, newSalePrice, Slot);
         }
+        
         
         
     }
@@ -90,6 +92,23 @@ public class Select : MonoBehaviour
         {
             Debug.LogError($"PotionData with ID {id} not found!");
         }
+    }
+
+    public void EmptySlot(int slot)
+    {
+        if(slot == 1)
+        {
+            selectedSlot = slotOne;
+           
+        }
+        if(slot == 2)
+        {
+            selectedSlot = slotTwo;
+        }
+
+        slotImage = selectedSlot.GetComponent<Image>();
+        slotImage.sprite = originalSprite;
+        slotImage.color = _emptyColor;
     }
 
 }

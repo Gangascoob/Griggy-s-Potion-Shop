@@ -669,6 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446cfbf6f79229046bd43aa1740be5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  select: {fileID: 1347707692}
 --- !u!1 &423087666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,6 +1917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotOne: {fileID: 1111426607}
   slotTwo: {fileID: 423087666}
+  originalSprite: {fileID: 21300000, guid: 2c2d2322ae554fc418cc89af3e805d40, type: 3}
   spriteArr:
   - {fileID: 21300000, guid: 679d4e42f6a849240b8abe145040b5aa, type: 3}
   - {fileID: 21300000, guid: 5f864801c2af59940af66f939fc3a2ad, type: 3}

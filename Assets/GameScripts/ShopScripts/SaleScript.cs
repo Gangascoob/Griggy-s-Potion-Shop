@@ -5,6 +5,7 @@ using UnityEngine;
 public class SaleScript : MonoBehaviour
 {
     private CoinScript Currency;
+    [SerializeField] private Select select;
 
     void Start()
     {
@@ -12,16 +13,17 @@ public class SaleScript : MonoBehaviour
     }
 
 
-    public void SetSale(float saleRate, int salePrice)
+    public void SetSale(float saleRate, int salePrice, int slot)
     {
-        StartCoroutine(Sale(saleRate, salePrice));
+        StartCoroutine(Sale(saleRate, salePrice, slot));
     }
 
-    private IEnumerator Sale(float saleRate, int salePrice)
+    private IEnumerator Sale(float saleRate, int salePrice, int slot)
     {
         float waitTime = 5 * saleRate;
         yield return new WaitForSeconds(waitTime);
         Currency.IncrementGold(salePrice);
+        select.EmptySlot(slot);
     }
 
 }
