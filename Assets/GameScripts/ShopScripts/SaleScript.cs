@@ -21,6 +21,7 @@ public class SaleScript : MonoBehaviour
     private IEnumerator Sale(float saleRate, int salePrice, int slot)
     {
         float waitTime = 5 * saleRate;
+        Debug.Log("Potion put up for sale");
         yield return new WaitForSeconds(waitTime);
         Currency.IncrementGold(salePrice);
         select.EmptySlot(slot);

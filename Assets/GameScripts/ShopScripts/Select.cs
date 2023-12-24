@@ -10,8 +10,7 @@ public class Select : MonoBehaviour
     private int Slot;
     private bool slotSelected = false;
 
-    [SerializeField] private GameObject slotOne;
-    [SerializeField] private GameObject slotTwo;
+    [SerializeField] private GameObject[] slotSelection;
 
     private GameObject selectedSlot;
 
@@ -23,6 +22,8 @@ public class Select : MonoBehaviour
     [SerializeField] private Sprite originalSprite;
     [SerializeField] private Sprite[] spriteArr;
 
+    private bool[] slotLocks;
+    
     private Color _potionColor;
     private Color _emptyColor;
 
@@ -36,6 +37,9 @@ public class Select : MonoBehaviour
     {
         _potionColor = new Color(209, 187, 125, 109);
         _emptyColor = new Color(209, 187, 125, 255);
+        slotLocks = new bool[2];
+        slotLocks[0] = false;
+        slotLocks[1] = false;
     }
 
    
@@ -46,17 +50,16 @@ public class Select : MonoBehaviour
 
     public void SelectSlot(int slot)
     {
-        Slot = slot;
-        slotSelected = true;
-        if(slot == 1 && slotOneLock == false)
+        if (slotLocks[slot] == false)
         {
-            selectedSlot = slotOne;
+            Slot = slot;
+            slotSelected = true;
+            selectedSlot = slotSelection[slot];
+            Debug.Log("Slot Selected");
+            slotLocks[slot] = true;
         }
-        if(slot == 2 && slotTwoLock == false)
-        {
-            selectedSlot = slotTwo;
-        }
-        Debug.Log("Slot Selected");
+
+       
     }
 
     public void SelectPotion(int slotID)
@@ -96,19 +99,12 @@ public class Select : MonoBehaviour
 
     public void EmptySlot(int slot)
     {
-        if(slot == 1)
-        {
-            selectedSlot = slotOne;
-           
-        }
-        if(slot == 2)
-        {
-            selectedSlot = slotTwo;
-        }
+        selectedSlot = slotSelection[slot];
 
         slotImage = selectedSlot.GetComponent<Image>();
         slotImage.sprite = originalSprite;
         slotImage.color = _emptyColor;
+        slotLocks[slot] = false;
     }
 
 }
