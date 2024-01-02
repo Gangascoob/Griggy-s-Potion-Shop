@@ -721,6 +721,7 @@ GameObject:
   - component: {fileID: 419484215}
   - component: {fileID: 419484214}
   - component: {fileID: 419484216}
+  - component: {fileID: 419484217}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -771,6 +772,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   select: {fileID: 1347707692}
+--- !u!114 &419484217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419484213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d4320b96ecc5f40b739b7c1037fb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &423087666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,6 +2129,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5f864801c2af59940af66f939fc3a2ad, type: 3}
   potionDataManager: {fileID: 1517537544}
   saleScript: {fileID: 419484216}
+  stockController: {fileID: 419484217}
 --- !u!1 &1353641177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,7 +3092,7 @@ GameObject:
   - component: {fileID: 1941761927}
   - component: {fileID: 1941761931}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ShopCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

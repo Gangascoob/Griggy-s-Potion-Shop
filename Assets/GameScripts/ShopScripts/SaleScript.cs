@@ -13,8 +13,9 @@ public class SaleScript : MonoBehaviour
     }
 
 
-    public void SetSale(float saleRate, int salePrice, int slot)
+    public void SetSale(float saleRate, int salePrice, int slot, int slotID)
     {
+
         StartCoroutine(Sale(saleRate, salePrice, slot));
     }
 

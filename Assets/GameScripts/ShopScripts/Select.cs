@@ -8,6 +8,7 @@ public class Select : MonoBehaviour
 {
 
     private int Slot;
+    private int stock;
     private bool slotSelected = false;
 
     [SerializeField] private GameObject[] slotSelection;
@@ -29,6 +30,7 @@ public class Select : MonoBehaviour
 
     public PotionDataManager potionDataManager;
     public SaleScript saleScript;
+    public PotionStockController stockController;
 
     private bool slotOneLock = false;
     private bool slotTwoLock = false;
@@ -64,8 +66,8 @@ public class Select : MonoBehaviour
 
     public void SelectPotion(int slotID)
     {
-
-        if(slotSelected == true)
+        stock = stockController.returnStock(slotID);
+        if(slotSelected == true && stock > 0)
         {
             GetValues(slotID);
             slotSprite = spriteArr[slotID];
@@ -73,7 +75,7 @@ public class Select : MonoBehaviour
             slotImage.sprite = slotSprite;
             slotSelected = false;
             slotImage.color = _potionColor;
-            saleScript.SetSale(newSaleRate, newSalePrice, Slot);
+            saleScript.SetSale(newSaleRate, newSalePrice, Slot, slotID);
         }
         
         
