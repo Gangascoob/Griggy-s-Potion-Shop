@@ -39,9 +39,11 @@ public class Select : MonoBehaviour
     {
         _potionColor = new Color(209, 187, 125, 109);
         _emptyColor = new Color(209, 187, 125, 255);
-        slotLocks = new bool[2];
+        slotLocks = new bool[4];
         slotLocks[0] = false;
         slotLocks[1] = false;
+        slotLocks[2] = false;
+        slotLocks[3] = false;
     }
 
    
